@@ -13,7 +13,7 @@
 </p>
 
 
-![image-ps](img\ps.png)
+![image-ps](https://raw.githubusercontent.com/LucasSers/dotfiles/master/img/ps.png)
 
 ## Table of Contents 
 
