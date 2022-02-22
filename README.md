@@ -15,9 +15,12 @@
 
 ![image-ps](https://raw.githubusercontent.com/LucasSers/dotfiles/master/img/ps.png)
 
+![image-ps](https://raw.githubusercontent.com/LucasSers/dotfiles/master/img/nvim.png)
+
 ## Table of Contents 
 
 -   [Powershell 🖥](#Powershell-)
+-   [Neovim 🧑‍🚀](#Neovim-)
 -   [Update 🚀](#update-)
 -   [Features 📃](#features-)
 
@@ -103,19 +106,64 @@ The following instructions are for Windows (powershell). **An admin prompt is re
    git clone https://github.com/LucasSers/dotfiles.git "$HOME\Appdata\Local\dotfiles"; cd "$HOME\Appdata\Local\dotfiles"; Copy-Item -Path ".\.config\" -Destination "$HOME" -Recurse -Confirm:$true -Force; Copy-Item -Path ".\PowerShell\Microsoft.PowerShell_profile.ps1" -Destination "$PROFILE" -Recurse -Confirm:$true -Force; cd "$HOME\.config\powershell"; Unblock-File -path ".\user_profile.ps1"; exit
    ```
 
+## Neovim 🧑‍🚀
+
+1. Install main dependencies.
+
+   ```powershell
+   choco install neovim python which SumatraPDF.install miktex.install -y;
+   # Needed for various plugins
+   choco install universal-ctags strawberryperl make SQLite ripgrep fd -y; RefreshEnv.cmd; exit
+   ```
+   
+2. Install python dependencies.
+
+   ```powershell
+   pip install pynvim neovim-remote; 
+   # Optionally for python linting and formatting:
+   pip install flake8 black
+   ```
+   
+3. Clone the repository and open nvim-qt or nvim.
+
+    If fresh installation:
+
+    ```powershell
+    git clone https://github.com/Neelfrost/dotfiles.git "$HOME\Appdata\Local\nvim"; nvim-qt.exe
+    ```
+
+    If nvim directory exists:
+
+    ```powershell
+    rm "$HOME\Appdata\Local\nvim" -Recurse; git clone https://github.com/Neelfrost/dotfiles.git "$HOME\Appdata\Local\nvim"; nvim-qt.exe
+    ```
+
+4. Configures Neovim for LaTeX and Language Servers following instructions.
+
+   ```
+   https://github.com/Neelfrost/nvim-config#latex
+   https://github.com/Neelfrost/nvim-config#language-servers
+   ```
 
 ## Update 🚀
 
 1. Pull changes.
 
-    ```powershell
-    cd "$HOME\Appdata\Local\dotfiles"; git pull
-    ```
+   ```powershell
+   cd "$HOME\Appdata\Local\dotfiles"; git pull;
+   cd "$HOME\Appdata\Local\nvim"; git pull
+   ```
 
-2. Launch the update script:
+2. Copy the updated script:
 
     ```powershell
     Copy-Item -Path ".\.config\" -Destination "$HOME" -Recurse -Confirm:$true -Force; exit
+    ```
+    
+3. Open nvim-qt or nvim and update plugins:
+
+    ```
+    :PackerSync
     ```
 
 ## Features 📃
