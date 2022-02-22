@@ -150,8 +150,8 @@ The following instructions are for Windows (powershell). **An admin prompt is re
 1. Pull changes.
 
    ```powershell
+   cd "$HOME\Appdata\Local\nvim"; git pull;
    cd "$HOME\Appdata\Local\dotfiles"; git pull;
-   cd "$HOME\Appdata\Local\nvim"; git pull
    ```
 
 2. Copy the updated script:
