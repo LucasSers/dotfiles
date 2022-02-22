@@ -169,3 +169,5 @@ The following instructions are for Windows (powershell). **An admin prompt is re
 ## Features 📃
 
 -   Aesthetic PowerShell prompt with Oh My Posh.
+-   Neovim with several plugins and parser.
+-   Ability to update config and plugins.
